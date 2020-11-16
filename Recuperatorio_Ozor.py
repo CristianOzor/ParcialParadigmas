@@ -122,7 +122,7 @@ def consult_data(archivo, presupuestoDado):
 				if (not viatic or viatic[0] != employee[0]):
 					print("\tNo se registran gastos con ese empleado")			
 				
-				contador = 0
+				
 				gastos = 0
 				while(viatic and viatic[0] == employee[0]):
 					suma = int(viatic[1])
@@ -143,8 +143,7 @@ def consult_data(archivo, presupuestoDado):
 						exceso = gastos - presupuesto
 						print(f"Legajo {employee[0]}: {employee[2]} {employee[1]}, gastó ${gastos} y se ha pasado del presupuesto por {exceso}")
 					
-					
-						
+				contador+=1
 				
 				employee= next(employee_csv, None)	
 			if (contador < 1):
