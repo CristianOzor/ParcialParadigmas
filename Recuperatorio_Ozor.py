@@ -131,16 +131,16 @@ def consult_data(archivo, presupuestoDado):
 				
 					viatic= next(viatic_csv, None)			
 					legajo = int(employee[0])
-					if (legajo == legajo_buscado):
-						if(gastos < presupuesto):
-							print(f"Legajo {employee[0]}: {employee[2]} {employee[1]}, gastó ${gastos}")
+				if (legajo == legajo_buscado):
+					if(gastos < presupuesto):
+						print(f"Legajo {employee[0]}: {employee[2]} {employee[1]}, gastó ${gastos}")
 							
-					if(gastos == presupuesto):
-						print(f"Legajo {employee[0]}: {employee[2]} {employee[1]}, gastó el equivalente al presupuesto")
+				if(gastos == presupuesto):
+					print(f"Legajo {employee[0]}: {employee[2]} {employee[1]}, gastó el equivalente al presupuesto")
 						
-					if(gastos > presupuesto):
-						exceso = gastos - presupuesto
-						print(f"Legajo {employee[0]}: {employee[2]} {employee[1]}, gastó ${gastos} y se ha pasado del presupuesto por {exceso}")
+				if(gastos > presupuesto):
+					exceso = gastos - presupuesto
+					print(f"Legajo {employee[0]}: {employee[2]} {employee[1]}, gastó ${gastos} y se ha pasado del presupuesto por {exceso}")
 					
 					
 						
