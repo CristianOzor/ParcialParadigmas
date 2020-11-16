@@ -39,7 +39,7 @@ def save_data(campos):
 	#valida si el archivo existe
 	if(os.path.isfile(file_name_final)):
 		
-		user_ask = input("¿Desea sobrescribir el archivo o modificarlo?: s/m")
+		user_ask = input("¿Desea sobrescribir el archivo o modificarlo?: s/m: ")
 		
 		if (user_ask == 's'):
 		 
@@ -59,11 +59,11 @@ def save_data(campos):
 		if (user_ask == 'm'):
 			
 			try:
-				with open(archivo, 'a', newline='') as file:
+				with open(file_name_final, 'a', newline='') as file:
 					file_guarda = csv.DictWriter(file, fieldnames=campos)
 					
 					#si el archivo no existe le graba el encabezado de los campos
-					if not archivo_existe:
+					if not file_name_final:
 						file_guarda.writeheader()
 
 					file_guarda.writerows(employee_list)
@@ -134,19 +134,21 @@ def consult_data(archivo, presupuestoDado):
 				if (legajo == legajo_buscado):
 					if(gastos < presupuesto):
 						print(f"Legajo {employee[0]}: {employee[2]} {employee[1]}, gastó ${gastos}")
-							
-				if(gastos == presupuesto):
-					print(f"Legajo {employee[0]}: {employee[2]} {employee[1]}, gastó el equivalente al presupuesto")
 						
-				if(gastos > presupuesto):
-					exceso = gastos - presupuesto
-					print(f"Legajo {employee[0]}: {employee[2]} {employee[1]}, gastó ${gastos} y se ha pasado del presupuesto por {exceso}")
+							
+					if(gastos == presupuesto):
+						print(f"Legajo {employee[0]}: {employee[2]} {employee[1]}, gastó el equivalente al presupuesto")
+						
+					if(gastos > presupuesto):
+						exceso = gastos - presupuesto
+						print(f"Legajo {employee[0]}: {employee[2]} {employee[1]}, gastó ${gastos} y se ha pasado del presupuesto por {exceso}")
 					
 					
 						
 				
 				employee= next(employee_csv, None)	
-			
+			if (contador < 1):
+				print("No se registran gastos con ese legajo")
 					
 				
 	except IOError:
